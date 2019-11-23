@@ -1,0 +1,28 @@
+package com.ditraacademy.travelagency.core.voyage;
+
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Date;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+public class Voyage {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //id qui s'incrémente auto
+    private int id;
+    private String titre;
+    private String description;
+    private String nbplaces;
+    private Double prix;
+    private Date date;
+
+}
