@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -85,9 +86,10 @@ public class VoyageServices {
         return   new ResponseEntity<>(HttpStatus.OK)  ;
     }
 
-    public ResponseEntity<?> getAllVoyagesByMaxPrice(double min, double max) {
 
-        List<Voyage> voyages = voyageRepository.findAllByPrixIsBetweenAndNbPlacesIsNot(min, max, 0);
-        return new ResponseEntity<>(voyages, HttpStatus.OK);
+
+    public ResponseEntity<?> getAllVoyagePrixMax(double prix){
+        List<Voyage> voyageprix =voyageRepository.findAllByPrixLessThanEqualAndNbPlacesIsNot(prix,0);
+        return new ResponseEntity<>(voyageprix,HttpStatus.OK);
     }
 }
