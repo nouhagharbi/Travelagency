@@ -24,6 +24,6 @@ public class Voyage {
     private Date date;
 
     @ManyToOne
-    private Destination destination;
+    private Destination destination; //de la destination on a accés au voyage benifique pour le JPA et aucun effet sur la BD, destination num1
 
 }

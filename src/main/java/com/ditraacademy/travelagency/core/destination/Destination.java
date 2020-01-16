@@ -21,7 +21,7 @@ public class Destination {
     private String nom;
     private String description;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "destination")
+    @JsonIgnore //elle s'applique sur la liste de voyage car elle vient avant, elle enléve cet attribut de JSON, on la utilisé dans notre cas pour enlever la boucle infinie
+    @OneToMany(mappedBy = "destination") // facultatif si on l'applique on parle d'une relation bidirectionnel, destination a accés au voyage,mapped by on lajout pour définir l'attribut dans voyage je vais mettre le num1 sur l'attribut
     private List<Voyage> voyages;
 }
